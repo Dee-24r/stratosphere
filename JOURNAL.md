@@ -13,3 +13,9 @@ Arya: Today, I put some more parts on the schematic! I did do a lot of research 
 Lapse: https://lapse.hackclub.com/timelapse/JW5rUNNi4N1H
 
 <img width="1105" height="646" alt="image" src="https://github.com/user-attachments/assets/8972fc64-26ed-492d-90bc-b4019ac4706d" />
+
+Arya: Today, we completed placing the main components on the schematic and started some wiring as well! I started with finishing up the components by adding a thing for power regulation, and we decided to use a buck-boost converter instead of a LDO like the reference schematic used since we were using a battery and that the 3V3 components should not be under or overvolted as that may damage them. It was a bit tricky finding a good buck- boost module, but I managed to find a decent one from TI that had the proper voltage output and supported enough amps being drawn. I also added some capacitors and header pin footprints to the schematic for the motor wiring/circutry. I then also added a slide switch for the power so that we had a nice way for turning it on and off. I also did the wiring for the power switch as well!
+
+Lapse: https://lapse.hackclub.com/timelapse/hAp201WeoFbX
+
+<img width="2362" height="1672" alt="SCH_Schematic1_1-P1_2026-10-29" src="https://github.com/user-attachments/assets/496dc88f-00ce-4525-9620-c40792675df0" />
