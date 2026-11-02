@@ -28,7 +28,7 @@ Lapse: https://lapse.hackclub.com/timelapse/q_PGseIQKXhP
 
 <img width="2362" height="1672" alt="SCH_Schematic1_1-P1_2026-10-30" src="https://github.com/user-attachments/assets/1e1035b6-6d31-41bb-9049-b74c87d0a123" />
 
-# 10/30/2026 Started and Finished PCB!! (Arya: 3hrs)
+# 10/31/2026 Started and Finished PCB!! (Arya: 3hrs)
 
 Arya: Today, we started and finished the PCB for the drone! We first started off with making some fixes to the schematic as we missed some things from last time, but we finally then moved on to the PCB. We started off with the layout of the PCB, and then we also decided the shape of the PCB as well, Funmi initially found a DXF and used that for the shape, but the center area turned out to be too small to comfortably fit the components and the thick power wires as they will carry a lot of current for the motors. Funmi then found a better DXF file that had a significantly larger center, so we decided to do that, and the components comfortably fit in to place with plenty of space for comfortable wiring. After we placed the components, we started with the wiring, by using the default trace width. But then, we decided that running 4 motors at once will draw plenty of power, so I converted the thin traces into larger and thicker traces so that they do not burn out. We then ran DRC and finished any wiring that was unconnected before doing the ground fill, which will connect all of the GND pins, and this is the main reason on why we did not wire any of the GND pins. We then connected the areas there the ground fill would not reach and then we changed the outline of the PCB so that the ESP32's antenna does not have any PCB under it as that is very bad for it and can strongly interfere. We are now done with the schematic and PCB for the actual drone, and now we decided to make a optional schematic and PCB for the remote so that there is another way to control it!
 
@@ -36,3 +36,12 @@ Lapse: https://lapse.hackclub.com/timelapse/CQgJdJIBf0Yd
 
 <img width="2160" height="2396" alt="PCB_PCB1_2026-10-31" src="https://github.com/user-attachments/assets/c0dadca5-f7a9-4e8a-acbd-c8d373054403" />
 <img width="2160" height="1652" alt="3D_PCB1_2026-10-31" src="https://github.com/user-attachments/assets/0ea488dc-efc7-49b8-a071-0ed8c487772c" />
+
+# 11/1/2026 Started and almost finished remote!! (Arya: 2hrs 40mins)
+
+Arya: Today, we started with the remote that will go along with the drone! We managed to almost finish it! We decided to use ESP-NOW as the wireless communication protocol between the drone and the remote, and we used the same ESP32 chip as the drone for the remote as well! The remote will have two joysticks and will also be powered by a battery! We also imported some ICs like the battery charger and the buck-boost from the schematic of the main drone along with the power switch and the reverse protection diodes, and managed to finish the schematic! We then started with the PCB and used a DXF for the outline that was shaped like a game controller. We then layed out the things and started wiring! We did not finish all of the wiring, but we almost are done with it!
+
+Lapse: https://lapse.hackclub.com/timelapse/f50ZKv_25U5I
+
+<img width="2362" height="1672" alt="SCH_remote_1-P1_2026-11-01" src="https://github.com/user-attachments/assets/8907591b-a499-45c2-97fe-9f6b89378617" />
+<img width="2160" height="1277" alt="PCB_PCB2_2026-11-01" src="https://github.com/user-attachments/assets/4253adb9-6abd-4d83-b4ad-fc6808dad766" />
