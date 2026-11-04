@@ -74,3 +74,15 @@ Lapse: https://lapse.hackclub.com/timelapse/nyggARL979qf
 <img width="1455" height="809" alt="image" src="https://github.com/user-attachments/assets/1c57f953-3a43-487d-8704-9e32ee2613c5" />
 <img width="1090" height="691" alt="image" src="https://github.com/user-attachments/assets/29c91f56-522c-424c-a8e4-34791571a8ae" />
 <img width="1203" height="778" alt="image" src="https://github.com/user-attachments/assets/a51c0eba-a3b1-4549-b76d-0cab3f58fa8a" />
+
+# 11/3/2026 Finished CAD for remote + added mounting holes to PCB!! (Arya: 3hrs)
+
+Arya: Today, I managed to finish the CAD for the remote for the drone and prepare for the cad for the drone by adding some mounting holes to the drone PCB! Starting off with the drone, I added another circular hole for the other joystick and properly aligned it! Going back and forth from the assembly to the part studio for the top part turned out to be very helpful as that showed me where exactly the components would be and helped me get a better alignment for the holes. I then added some holes for the buttons and the switch so that they could be accessible! And I then added two screw holes to the top and bottom part of the case so that they could be secured together. I made the holes 1.5mm in diameter, as there was not too much space. And I then fileted the edges of the remote so that it would be comfortable to hold and use. And this was everything that would be needed for the remote! I am now done. I then decided to make a lightweight enclosure for the drone PCB, and I did some research and then decided to add some mounting holes to the drone so that the case could easily be mounted to the drone with screws. I used 2.2mm diameter holes, which should fit M2 screws! I then exported the DXF to the Onshape document to get started with the outline and this is where I ended today. 
+
+NOTE TO SELF: forgot to make the inside of the remote enclosure 1mm bigger everywhere so that the PCB would actually fit.
+
+Lapse: https://lapse.hackclub.com/timelapse/La3krgGdeiRh
+
+<img width="976" height="566" alt="image" src="https://github.com/user-attachments/assets/0f23fd7e-8f31-4936-aa7f-295b207c74f2" />
+<img width="1069" height="722" alt="image" src="https://github.com/user-attachments/assets/e2762960-4792-42a4-8196-e5e19c642d82" />
+<img width="438" height="374" alt="image" src="https://github.com/user-attachments/assets/f6a2a3e4-c5fe-4232-818c-f17995a0e753" />
