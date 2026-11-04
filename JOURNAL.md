@@ -40,7 +40,7 @@ Arya: Today, we locked in and finished the schematic for the PCB! I worked on th
 Lapse: https://lapse.hackclub.com/timelapse/q_PGseIQKXhP
 
 
-Funmi: Today, I wired up the buck boost that my teammate addded! I used the official datashee, and verified all the connections with . I then c decoupling capacitors for the esp32 and wired those up!
+Funmi: Today, I wired up the buck boost that my teammate addded! I used the official datasheet, and verified all the connections by searching them up. I then wired the battery charger. I made referrence to our previous work where we used a similar charger, as well as the datasheet and some searching up! I then connected decoupling capacitors to the nets of both the eps32 and the usb-c port. other components had decoups!
 
 Lapse: https://lapse.hackclub.com/timelapse/0EReSTvB6Si9
 
@@ -54,6 +54,10 @@ Lapse: https://lapse.hackclub.com/timelapse/CQgJdJIBf0Yd
 
 <img width="2160" height="2396" alt="PCB_PCB1_2026-10-31" src="https://github.com/user-attachments/assets/c0dadca5-f7a9-4e8a-acbd-c8d373054403" />
 <img width="2160" height="1652" alt="3D_PCB1_2026-10-31" src="https://github.com/user-attachments/assets/0ea488dc-efc7-49b8-a071-0ed8c487772c" />
+
+
+Funmi: I fot my teammate started on the PCB while I finished up the schematic! I used AI to generate an image so that we could convert that into a dxf to use for our board outlines
+
 
 # 11/1/2026 Started and almost finished remote!! (Arya: 2hrs 40mins)
 
