@@ -40,9 +40,20 @@ Arya: Today, we locked in and finished the schematic for the PCB! I worked on th
 Lapse: https://lapse.hackclub.com/timelapse/q_PGseIQKXhP
 
 
-Funmi: Today, I wired up the buck boost that my teammate addded! I used the official datasheet, and verified all the connections by searching them up. I then wired the battery charger. I made referrence to our previous work where we used a similar charger, as well as the datasheet and some searching up! I then connected decoupling capacitors to the nets of both the eps32 and the usb-c port. other components had decoups!
+Funmi: Today, I wired up the USB-c port up to the esp32; I had actually added a daul core port, so I had to change the component I added, and then I wired it up! I also corrected the esp32 boot and reset pins wiring (I had it messed up in my head). and then I also wired the battery charger using the datasheet, and started wiring the buck boost!
 
-Lapse: https://lapse.hackclub.com/timelapse/0EReSTvB6Si9
+Later in the evening, I finished wiring the buck boost! I used the official datasheet, and verified all the connections by searching them up. I then wired the battery charger. I made referrence to our previous work where we used a similar charger, as well as the datasheet and some searching up! I then connected decoupling capacitors to the nets of both the eps32 and the usb-c port. other components had decoups!
+
+Lapses: https://lapse.hackclub.com/timelapse/9H1b02PIKix8
+https://lapse.hackclub.com/timelapse/0EReSTvB6Si9
+
+![alt text](images/usb-c.png)
+
+![alt text](images/esp-32.png)
+
+![A](images/buck-boost.png)
+
+![alt text](images/battery-charger-decoups.png)
 
 <img width="2362" height="1672" alt="SCH_Schematic1_1-P1_2026-10-30" src="https://github.com/user-attachments/assets/1e1035b6-6d31-41bb-9049-b74c87d0a123" />
 
@@ -52,18 +63,48 @@ Arya: Today, we started and finished the PCB for the drone! We first started off
 
 Lapse: https://lapse.hackclub.com/timelapse/CQgJdJIBf0Yd
 
+
+Funmi: I got my teammate started on the PCB while I finished up the schematic! I used AI to generate an image so that we could convert that into a dxf to use for our board outlines! The first image I generated tho, didnt have enough space, so I had to make it more spacious even though it lost some (aerospace thingy.. when i remember the word, i'll write it).
+
+After converitng that into a dxf, I imported it in easyeda to be the board outline! My teammate started placing the major components on it, w the motors on the egdes of the drone! When he had placed the major components, I placed most of the passive components and power components (buck boost and charger)! And then we started wiring! I did the differential pairs this time around, iirc, the difference was extremely tiny (i;m a pro ik)!
+
+We finished wiring the entire pcb, ran drc, fixed our errorrs, and our pcb was done! IK I corrected some schem changes along the way!
+
+We also made our power lines and wires to the motors to be much thicker because we know the motors are gonna draw a lot of power!
+
+Lapse: https://lapse.hackclub.com/timelapse/UBv8r2Zs-w55
+https://lapse.hackclub.com/timelapse/-6HV9QeK-hMO
+
+![alt text](images/drone.png)
+
+![alt text](images/wired-drone.png)
+
+![alt text](images/pcb-dronr-3d.png)
+
 <img width="2160" height="2396" alt="PCB_PCB1_2026-10-31" src="https://github.com/user-attachments/assets/c0dadca5-f7a9-4e8a-acbd-c8d373054403" />
 <img width="2160" height="1652" alt="3D_PCB1_2026-10-31" src="https://github.com/user-attachments/assets/0ea488dc-efc7-49b8-a071-0ed8c487772c" />
-
-
-Funmi: I fot my teammate started on the PCB while I finished up the schematic! I used AI to generate an image so that we could convert that into a dxf to use for our board outlines
-
 
 # 11/1/2026 Started and almost finished remote!! (Arya: 2hrs 40mins)
 
 Arya: Today, we started with the remote that will go along with the drone! We managed to almost finish it! We decided to use ESP-NOW as the wireless communication protocol between the drone and the remote, and we used the same ESP32 chip as the drone for the remote as well! The remote will have two joysticks and will also be powered by a battery! We also imported some ICs like the battery charger and the buck-boost from the schematic of the main drone along with the power switch and the reverse protection diodes, and managed to finish the schematic! We then started with the PCB and used a DXF for the outline that was shaped like a game controller. We then layed out the things and started wiring! We did not finish all of the wiring, but we almost are done with it!
 
 Lapse: https://lapse.hackclub.com/timelapse/f50ZKv_25U5I
+
+
+Funmi: Today, we started working on a remote for our drone! I started by sourcing and adding some of the components tyhat our remote needed! I added a joystick, a switch for arm/disarming the PCB! I also added an esp32, an ldo and a battery charger, considering we were also tryna do a battery for our pcb! After sourcing these components, I started wiring them using their datasheets!
+
+My teammate suggested adding a second joystick, which we did! I wired up the joystick which also had a switch push, and my teammate added a second (and also corrected some of my wiring on the joystick) based on the pinout on its page and with the help of AI, especially cuz the pinout wasn't explicitly stated (no documentation of the pinout on the datasheet). I added NC connectors to the edp32's unused pins, and ran drc for our full schematic!
+
+Then we got started on the PCB. We decided to do a game controller shaped remote! So, again I generated another image and converted it into a dxf. I imported it as board outline leayer to our pcb! wHILE my teammate was placing some of the main components on the PCB, I added some ohter stuff like voltage checker for checking the battery, decoup caps, etc! Then,I joined my teammate to place all the other components on the PCB, ofc taking all the constraints into consideration!
+
+I had to change the size of the pull up resistors for the usbc port to 0402s because there was limited space, and I wasn't gonna be able to wire the 0603s where we had them placed..! I managed to constrain space (especially around the port and esp32) and got everything there wired! We again made some of our lines thicker, especially for the power lines! We managed to finish wiring most of the pcb, run drc and fix some of our non-connected pins (non-gnd cuz we always do gnd fills). Just a few more things to wire from here, and we're shipping for this week! (know it's a long lapse, instead of syncing when i took a break, i just paused!)
+
+
+Lapse: https://lapse.hackclub.com/timelapse/YJnJmcOCOAVL
+
+![alt text](images/progress-controller.png)
+
+![alt text](images/joysticks.png)
 
 <img width="2362" height="1672" alt="SCH_remote_1-P1_2026-11-01" src="https://github.com/user-attachments/assets/8907591b-a499-45c2-97fe-9f6b89378617" />
 <img width="2160" height="1277" alt="PCB_PCB2_2026-11-01" src="https://github.com/user-attachments/assets/4253adb9-6abd-4d83-b4ad-fc6808dad766" />
