@@ -141,3 +141,10 @@ Lapse: https://lapse.hackclub.com/timelapse/3lhUqVo5vYKt
 <img width="903" height="769" alt="image" src="https://github.com/user-attachments/assets/6d8868da-9064-4021-908f-b1cbe2796104" />
 <img width="1440" height="838" alt="image" src="https://github.com/user-attachments/assets/78592fd7-f279-4865-9810-d20bc8eeba12" />
 
+# 11/5/2026 Fixed PCB wiring + got stuck on CAD!! (Arya: 1hr 30mins)
+
+Arya: 
+
+Laspe: https://lapse.hackclub.com/timelapse/LJeRx3feAz_-
+
+<img width="806" height="748" alt="image" src="https://github.com/user-attachments/assets/15ce6f49-0486-42a7-b1ae-3e89852dcac7" />
