@@ -1,9 +1,9 @@
 #pragma once
 
-#define MOTOR_1 4
-#define MOTOR_2 5
-#define MOTOR_3 6
-#define MOTOR_4 7
+#define MOTOR_1_PIN 4
+#define MOTOR_2_PIN 5
+#define MOTOR_3_PIN 6
+#define MOTOR_4_PIN 7
 
 #define ADC_BAT 1
 #define I2C_SDA 9
