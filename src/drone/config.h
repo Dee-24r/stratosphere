@@ -9,4 +9,4 @@
 #define I2C_SDA 9
 #define I2C_SCL 10
 
-#define GYRO_ADD #idk
+#define MPU6050_ADDR 0x68

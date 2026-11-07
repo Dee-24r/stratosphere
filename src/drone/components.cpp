@@ -8,13 +8,34 @@
 
 Adafruit_MPU6050 mpu;
 
+void stabiliseMotors(const mpuData)
+
 bool initialise_MPU6050(){
-    if (!mpu.begin())
+    Wire.beginTransmission(MPU6050_ADDR);
+    Wire.write(0x68);
+    Wire.write(0x00);
+
+    if (Wire.endTransmission != 0)
         return false;
-    Serial.println("MPU6050 did not load!");
     
-    # mpu.setAccelerometerRange(MPU6050_RANGE_8_G);
+
+    Wire.beginTransmission(MPU6050_ADDR);
+    Wire.write(0x1B);
+    Wire.write(0x08);
+    Wire.endTransmission();
+
+    Wire.beginTransmission(MPU6050_ADDR);
+    Wire.write(0x1A);
+    Wire.write(0x03);
+    Wire.endTransmission();
+      
     return true;
+}
+
+bool readGyro(mpuData &mpu_data){
+    Wire.beginTransmission(MPU6050_ADDR);
+    Wire.write(0x43);
+    Wire.endTransmission(false);
 }
 
 bool initialise_Motors(){
@@ -22,6 +43,12 @@ bool initialise_Motors(){
     pinMode(MOTOR_2, OUTPUT);
     pinMode(MOTOR_3, OUTPUT);
     pinMode(MOTOR_4, OUTPUT);
+
+    digitalWrite(MOTOR_1, LOW);
+    digitalWrite(MOTOR_2, LOW);
+    digitalWrite(MOTOR_3, LOW);
+    digitalWrite(MOTOR_4, LOW);
+
 }
 
 void readMPUData(mpuData &mpu_data);
