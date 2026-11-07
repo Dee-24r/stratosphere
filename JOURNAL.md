@@ -143,8 +143,16 @@ Lapse: https://lapse.hackclub.com/timelapse/3lhUqVo5vYKt
 
 # 11/5/2026 Fixed PCB wiring + got stuck on CAD!! (Arya: 1hr 30mins)
 
-Arya: 
+Arya: Today, I fixed some bad wiring on the PCB that someone pointed out and also attempted to get some CAD done! I was looking through the PCB while also being in a Slack huddle, and someone helped me fix some wiring for the PCB and make it be better! After I got some things fixed, I had trouble with the DXF exporting the screw holes from the PCB to the DXF as it would not show, so I decided that I will manually define their positions. But I was exporting a DXF again, while I saw the multi-layer option in the EasyEDA menu, I decided to try that, and the holes exported! The only downside was that other holes and the vias also exported so I had too manually go through and remove them!
 
 Laspe: https://lapse.hackclub.com/timelapse/LJeRx3feAz_-
 
 <img width="806" height="748" alt="image" src="https://github.com/user-attachments/assets/15ce6f49-0486-42a7-b1ae-3e89852dcac7" />
+
+# 11/6/2026 Worked on CAD!! (Arya: 1hr)
+
+Arya: Today, I got some more CAD done! I wanted to make the base as light as possible since more weight would not be good for the drone, and yet the drone will need to have a way for it to sit without the PCB being on the floor. I decided to make some lines that to across the DXF in multiple directions, and then I extruded the parts that were needed for the base to be connected to the other things! It turned into a x-like shape! I then assembled the base with the PCB just to confirm things! I then forgot about the screw holes that need to actually screw, so I extruded the screw holes and made a new hole using the hole tool in their place which would allow the screw to actually drill through and stay instead of slide through like the PCB! After doing that, I added some little feet that the drone could land on, keeping some distance from the ground and the drone! I made legs around the location of the motor holes in the base and the PCB!
+
+Lapse: https://lapse.hackclub.com/timelapse/WVjIrPs2Qs_R
+
+<img width="1444" height="697" alt="image" src="https://github.com/user-attachments/assets/1178ce28-0c55-4b2f-b907-e9fa0a23f18d" />
