@@ -8,14 +8,14 @@
 #include <Wifi.h>
 
 
-void initialise_Motors(){
+void initialiseMotors(){
     ledcAttachChannel(MOTOR_1_PIN, PWM_FREQUENCY, PWM_RES, 0);
     ledcAttachChannel(MOTOR_2_PIN, PWM_FREQUENCY, PWM_RES, 1);
     ledcAttachChannel(MOTOR_3_PIN, PWM_FREQUENCY, PWM_RES, 2);
     ledcAttachChannel(MOTOR_4_PIN, PWM_FREQUENCY, PWM_RES, 3)
 }
 
-bool initialise_MPU6050(){
+bool initialiseMPU6050(){
     if(!Wire.begin(I2C_SDA, I2C_SCL)){
         return false;
     }
@@ -32,31 +32,33 @@ bool initialise_MPU6050(){
 }
 
 
-void stabiliseMotors(const mpuData &mpu_data){
-    long lastTime = 0;
-    if(lastTime == 0)
-        lastTime = micros();
+void stabiliseMotors(const mpuData &mpu_data, const joystickControls &joystick_controls, float change-in-time){
+    
+    float pitchAngle = 0.0, rollAngle = 0.0;
+    bool firstReading = true;
 
-    float anglePitch = 0.0, angleRoll = 0.0;
-    float targetPitch = 0.0, targetRoll = 0.0;
-    float errorRoll, errorPitch;
-    float ALPHA = 0.98; //will do more research on which value is beter, but this is fo merging the accelerometer and gyro values to use for the thi
+    float rollRate = mpu_data.rollSpeed * RADIANS_TO_DEG;
+    float pitchRate = mpu_data.pitchSpeed * RADIANS_TO_DEG;
+    float yawRate = reading.yawSpeed * RADIANS_TO_DEG;
 
-    long currentTime = micros();
-    float time-difference = (micros() - lastTime) / 1000000 //this is seconds
+    float accelRoll = atan2f(mpu_data.accelY, mpu_data.accelZ) * RADIANS_TO_DEG;
+    float accelPitch = atan2f(-mpu_data.accelX, sqrtf(mpu_data.accelY * mpu_data.accelY + mpu_data.accelZ * mpu_data.accelZ)) * RAD_TO_DEG; //this is tan inverse squared (accy, accz)
 
-    mpu_data.rollSpeed = mpu_data.rollSpeed * 57.2958;
-    mpu_data.pitchSpeed = mpu_data.pitchSpeed * 57.2958;//radian to degrees /secodn
+    if(!firstReading){
+        rollAngle = accelRoll;
+        pitchAngle = accelPitch;
+        firstReading = false;
+    }
+    else{
+        rollAngle = ALPHA * (rollAngle + rollRate * change-in-time) + (1 - alpha) * accelRoll;
+        pitchAngle = ALPHA * (pitchAngle + pitchRate * change-in-time) + (1 - ALPHA) * accelPitch;
+    }
 
-    mpu_data.pitchSpeed = mpu_data.
-    float integralRoll = 0.0
-    const long loop_time = 5000;
+    float errorRoll = joystick_controls.jsRoll - rollAngle;
+    float errorPitch = joystick_controls.jsPitch - pitchAngle;
+    float yawError = joystick_controls.jsYaw = yawRate;
 
-
-    int motor_1_pwm, motor_2_pwm, motor_3_pwm, motor_4_pwmk;
-
-    //roll = ALPHA * (angleRoll)
-
+    int motor_1_pwm, motor_2_pwm, motor_3_pwm, motor_4_pwm;
 
     motor_1_pwm = throttle + roll + pitch - yaw;
     motor_2_pwm = throttle - roll + picth + yaw;
@@ -75,9 +77,21 @@ void stabiliseMotors(const mpuData &mpu_data){
     ledcWrite(MOTOR_4_PIN, motor_4_pwm);
 }
 
-bool readMPU6050(mpuData &mpu_data){
-    Wire.beginTransmission(MPU6050_ADDR);
-    Wire.write(0x43);
-    Wire.endTransmission(false);
+void readMPU6050(mpuData &mpu_data){
+    
+    sensors_event_t accel, gyro, temp;
+    mpu.getEvent(&accel, &gyro, &temp);
+
+    mpu_data.rollSpeed = gyro.gyro.x;
+    mpu_data.pitchSpeed = gyro.gyro.y;
+    mpu_data.yawSpeed = gyro.gyro.z;
+
+    mpu_data.accelX = accel.acceleration.x;
+    mpu_data.accelY = accel.acceleration.y;
+    mpu_data.accelZ = accel.acceleration.z;
+    
 }
 
+void onDataReceive(const esp_now_recv_info_t *info, joystickControls *data_sent, int len){
+    memcpy(&joystick_controls, )
+}

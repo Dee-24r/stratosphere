@@ -1,6 +1,6 @@
 #include "config.h"
 #include "components.h"
-#inlcude "../data.h"
+#include "../data.h"
 
 #include <Arduino.h>
 #include <esp_now.h>

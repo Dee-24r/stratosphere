@@ -12,3 +12,6 @@
 
 #define POT1_SW 16
 #define POT2_SW 17
+
+RADIANS_TO_DEG = 57.2958;
+const float ALPHA = 0.98;

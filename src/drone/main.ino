@@ -16,34 +16,34 @@ float yaw = 0.0;
 
 const int PWM_FREQUENCY = 20000, PWM_RES = 8;
 
-
 void setup(){
     Serial.begin(115200);
 
     Serial.println("STRATOSPHERE!!");
 
-    if(!initialise_MPU6050()){
+    if(!initialiseMPU6050()){
         Serial.println("MPU did not load");
     }
     else{
         Serial.println("MPU6050 setup");
     }
 
-    initialise_Motors();
+    initialiseMotors();
+
+    Wifi.mode(WIFI_STA);
+    if(esp_now-init() != ESP_OK){
+        Serial.println("ESP-NOW initialisation failed.");
+    }
+
+    esp_now_register_recv_cb(onDataReceive);
+    Serial.println("Drone initialised");
+    
+    stabiliseMotors(mpu_data);
 }
 
 void loop(){
     long currentMicros = micros();
-    
-    mpu.getEvent(&accel, &gyro, &temp);
+    const long LOOP_US = 5000;
 
-    mpu_data.rollSpeed = gyro.gyro.x;
-    mpu_data.pitchSpeed = gyro.gyro.y;
-    mpu_data.yawSpeed = gyro.gyro.z;
-
-    mpu_data.accelX = accel.acceleration.x;
-    mpu_data.accelY = accel.acceleration.y;
-    mpu_data.accelZ = accel.acceleration.z;
-    
-    stabiliseMotors(mpu_data);
+    readMPU6050();
 }
