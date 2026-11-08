@@ -13,5 +13,8 @@
 #define POT1_SW 16
 #define POT2_SW 17
 
-RADIANS_TO_DEG = 57.2958;
-const float ALPHA = 0.98;
+#define RADIANS_TO_DEG = 57.2958;
+#define const float ALPHA = 0.98;
+#define PWM_FREQUENCY 20000
+#define PWM_RES 8
+#define MPU6050 0x68

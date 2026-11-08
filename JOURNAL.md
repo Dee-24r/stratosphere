@@ -156,3 +156,11 @@ Arya: Today, I got some more CAD done! I wanted to make the base as light as pos
 Lapse: https://lapse.hackclub.com/timelapse/WVjIrPs2Qs_R
 
 <img width="1444" height="697" alt="image" src="https://github.com/user-attachments/assets/1178ce28-0c55-4b2f-b907-e9fa0a23f18d" />
+
+![alt text](images/drone-pcb.png)
+
+![alt text](images/drone-cad.png)
+
+![alt text](images/remote-pcb.png)
+
+![alt text](images/remote-cad.png)
