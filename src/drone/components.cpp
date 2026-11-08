@@ -81,6 +81,3 @@ bool readMPU6050(mpuData &mpu_data){
     Wire.endTransmission(false);
 }
 
-void initialise_espnow(){
-    Wifi.mode(WIFI.STA)
-}

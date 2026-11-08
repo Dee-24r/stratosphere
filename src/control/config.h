@@ -1,6 +1,7 @@
 #pragma once
 
 #define BAT_ADC_PIN 1
+#define BAT_LED 18
 
 #define POT1_X_YAW 4 //potentiometer
 #define POT1_Y_THROTTLE 5
