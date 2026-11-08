@@ -1,32 +1,62 @@
 #include "config.h"
 #include "components.h"
+#include "../data.h"
 #include <Arduino.h>
 #include <Adafruit_MPU6050.h>
 #include <Adafruit_Sensor.h>
 #include <Wire.h>
+#include <Wifi.h>
 
 
-Adafruit_MPU6050 mpu;
-float throttle = 130.0;
-float yaw = 0.0;
+void initialise_Motors(){
+    ledcAttachChannel(MOTOR_1_PIN, PWM_FREQUENCY, PWM_RES, 0);
+    ledcAttachChannel(MOTOR_2_PIN, PWM_FREQUENCY, PWM_RES, 1);
+    ledcAttachChannel(MOTOR_3_PIN, PWM_FREQUENCY, PWM_RES, 2);
+    ledcAttachChannel(MOTOR_4_PIN, PWM_FREQUENCY, PWM_RES, 3)
+}
 
-const int PWM_FREQUENCY = 20000, PWM_RES = 8;
+bool initialise_MPU6050(){
+    if(!Wire.begin(I2C_SDA, I2C_SCL)){
+        return false;
+    }
 
-void stabiliseMotors(const mpuData){
+    if(!mpu.begin(MPU6050_ADDRC, &Wire)){
+        return false;
+    }
+
+    mpu.setHighPassFilter(MPU6050_HIGHPASS_5_HZ);
+    mpu.setAccelerometerRange(MPU6050_RANGE_16_G);
+    mpu.setGyroRange(MPU6050_RANGE_2000_DEG);
+
+    return true;
+}
+
+
+void stabiliseMotors(const mpuData &mpu_data){
     long lastTime = 0;
-    const long loop_time = 5000;
-
-    float time-difference = (micros() - lastTime) / 1000000 //us
-
-    float ALPHA = 98; //will do more research on which value is beter, but this is fo merging the accelerometer and gyro values to use for the thi
+    if(lastTime == 0)
+        lastTime = micros();
 
     float anglePitch = 0.0, angleRoll = 0.0;
     float targetPitch = 0.0, targetRoll = 0.0;
     float errorRoll, errorPitch;
+    float ALPHA = 0.98; //will do more research on which value is beter, but this is fo merging the accelerometer and gyro values to use for the thi
+
+    long currentTime = micros();
+    float time-difference = (micros() - lastTime) / 1000000 //this is seconds
+
+    mpu_data.rollSpeed = mpu_data.rollSpeed * 57.2958;
+    mpu_data.pitchSpeed = mpu_data.pitchSpeed * 57.2958;//radian to degrees /secodn
+
+    mpu_data.pitchSpeed = mpu_data.
+    float integralRoll = 0.0
+    const long loop_time = 5000;
+
 
     int motor_1_pwm, motor_2_pwm, motor_3_pwm, motor_4_pwmk;
 
-    //angleRoll = ALPHA * (angleRoll)
+    //roll = ALPHA * (angleRoll)
+
 
     motor_1_pwm = throttle + roll + pitch - yaw;
     motor_2_pwm = throttle - roll + picth + yaw;
@@ -45,57 +75,12 @@ void stabiliseMotors(const mpuData){
     ledcWrite(MOTOR_4_PIN, motor_4_pwm);
 }
 
-bool initialise_MPU6050(){
-    Wire.beginTransmission(MPU6050_ADDR);
-    Wire.write(0x68);
-    Wire.write(0x00);
-
-    if (Wire.endTransmission != 0)
-        return false;
-    
-
-    Wire.beginTransmission(MPU6050_ADDR);
-    Wire.write(0x1B);
-    Wire.write(0x08);
-    Wire.endTransmission();
-
-    Wire.beginTransmission(MPU6050_ADDR);
-    Wire.write(0x1A);
-    Wire.write(0x03);
-    Wire.endTransmission();
-      
-    return true;
-}
-
 bool readMPU6050(mpuData &mpu_data){
     Wire.beginTransmission(MPU6050_ADDR);
     Wire.write(0x43);
     Wire.endTransmission(false);
 }
 
-bool initialise_Motors(){
-    pinMode(MOTOR_1, OUTPUT);
-    pinMode(MOTOR_2, OUTPUT);
-    pinMode(MOTOR_3, OUTPUT);
-    pinMode(MOTOR_4, OUTPUT);
-
-    digitalWrite(MOTOR_1, LOW);
-    digitalWrite(MOTOR_2, LOW);
-    digitalWrite(MOTOR_3, LOW);
-    digitalWrite(MOTOR_4, LOW);
+void initialise_espnow(){
+    Wifi.mode(WIFI.STA)
 }
-
-
-
-
-
-
-
-
-
-
-bool initialiseMotors(){
-
-}
-
-begin(uint8_t i2c_address, TwoWire *wire, int32_t sensor_id)
