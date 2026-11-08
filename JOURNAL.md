@@ -173,3 +173,5 @@ https://lapse.hackclub.com/timelapse/sqRohAZcnNCH
 ![alt text](images/remote-pcb.png)
 
 ![alt text](images/remote-cad.png)
+
+note in repo: [the adafruit libraries](src/Adafruit_MPU6050.h) are not written by us, lol!

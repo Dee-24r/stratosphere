@@ -13,8 +13,7 @@ sensors_event_t accel, gyro, temp;
 
 float throttle = 130.0;
 float yaw = 0.0;
-
-const int PWM_FREQUENCY = 20000, PWM_RES = 8;
+bool lastOn;
 
 void setup(){
     Serial.begin(115200);
@@ -35,15 +34,21 @@ void setup(){
         Serial.println("ESP-NOW initialisation failed.");
     }
 
+    
+
     esp_now_register_recv_cb(onDataReceive);
     Serial.println("Drone initialised");
-    
-    stabiliseMotors(mpu_data);
 }
 
 void loop(){
     long currentMicros = micros();
     const long LOOP_US = 5000;
 
-    readMPU6050();
+    readMPU6050(mpu_data);
+    stabiliseMotors(mpu_data);
+
+    float batteryVoltage = analogRead(BAT_ADC_PIN);
+    batteryVoltage = batteryVoltage * (330 + 100)/ 330;
+
+    updateBatteryLED(batteryVoltage, 70, 20, lastOn);
 }

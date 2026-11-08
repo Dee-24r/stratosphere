@@ -1,6 +1,7 @@
 #include "config.h"
 #include "components.h"
 #include "../data.h"
+
 #include <Arduino.h>
 #include <Adafruit_MPU6050.h>
 #include <Adafruit_Sensor.h>
@@ -31,6 +32,10 @@ bool initialiseMPU6050(){
     return true;
 }
 
+void initialiseBatIndication(){
+    pinMode(ADC_BAT, INPUT);
+    pinMode(BAT_LED, OUTPUT);
+}
 
 void stabiliseMotors(const mpuData &mpu_data, const joystickControls &joystick_controls, float change-in-time){
     
@@ -92,6 +97,23 @@ void readMPU6050(mpuData &mpu_data){
     
 }
 
-void onDataReceive(const esp_now_recv_info_t *info, joystickControls *data_sent, int len){
-    memcpy(&joystick_controls, )
+
+void updateBatteryLED(float batteryVoltage, float lowBar, float mediumBar, bool lastOn){
+    
+    if (batteryVoltage >= mediumBar)
+        digitalWrite(BAT_LED, HIGH);
+    else if(batteryVoltage >= lowBar){
+        if(lastOn) == 1 {
+            digitalWrite(BAT_LED, LOW);
+        }
+        else{
+            digitalWrite(BAT_LED, HIGH);
+        }
+    }
+    else
+        digitalWrite(BAT_LED, LOW);
 }
+
+// void onDataReceive(const esp_now_recv_info_t *info, joystickControls *data_sent, int len){
+//     memcpy(&joystick_controls, )
+// }

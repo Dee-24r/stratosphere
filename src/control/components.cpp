@@ -47,7 +47,7 @@ void initialise_espnow(){
 }
 
 void updateBatteryLED(float batteryVoltage, float lowBar, float mediumBar, bool lastOn){
-    
+
     if (batteryVoltage >= mediumBar)
         digitalWrite(BAT_LED, HIGH);
     else if(batteryVoltage >= lowBar){
@@ -60,4 +60,5 @@ void updateBatteryLED(float batteryVoltage, float lowBar, float mediumBar, bool 
     }
     else
         digitalWrite(BAT_LED, LOW);
+    
 }
