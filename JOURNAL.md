@@ -156,3 +156,13 @@ Arya: Today, I got some more CAD done! I wanted to make the base as light as pos
 Lapse: https://lapse.hackclub.com/timelapse/WVjIrPs2Qs_R
 
 <img width="1444" height="697" alt="image" src="https://github.com/user-attachments/assets/1178ce28-0c55-4b2f-b907-e9fa0a23f18d" />
+
+# 7th November (assembly, and pcb update)
+
+Funmi: We realised we didn't have displays or anything to show the battery we're measuring, so we added indication LEDs to both the remote and the PCB! And then updated the PCB, ran drc and allathat! I did the assembly for the motors and propellers on the drone! I also added a hole for the led on the remote!
+
+Lapse: https://lapse.hackclub.com/timelapse/J18JX5RWwtrr
+https://lapse.hackclub.com/timelapse/sqRohAZcnNCH
+
+
+https://lapse.hackclub.com/timelapse/sqRohAZcnNCH
